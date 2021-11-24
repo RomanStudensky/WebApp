@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Отдел кадров</title>
+</head>
+<body>
+<a href="/empDep/addEmployee" style="position: relative; left: 30%; transform:translate(-50%, 0)">
+    <button>Принять на работу</button>
+</a>
+<a href="/search/search" style="position: relative; left: 53%; transform:translate(-50%, 0)">
+    <button>Поиск сведений</button>
+</a>
+<div style="height: 20px"></div>
+<table border-color="white"   border="1" cellspacing="0" cellpadding="7" style="background: #CFCFCF; position: relative; left: 50%; transform:translate(-50%, 0)" >
+    <tr>
+        <th>Фамилия</th>
+        <th>Имя</th>
+        <th>Отчество</th>
+        <th>День рождения</th>
+        <th>Адрес</th>
+    </tr>
+    <tr th:each="employee : ${employees}">
+
+        <th th:text="${employee.getSurname()}"></th>
+        <th th:text="${employee.getName()}"></th>
+        <th th:text="${employee.getFathername()}"></th>
+        <th th:text="${employee.getBirthd()}"></th>
+        <th th:text="${employee.getAddres()}"></th>
+        <th>
+            <a th:href="@{/empDep/showEmploy/{id}(id=${employee.getId()})}">
+                <input type="submit" value="Подробнее" >
+            </a>
+        </th>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Принятие на работу</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-css/1.4.6/select2-bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+
+</head>
+<body>
+    <div style="position: absolute; left: 50%; transform:translate(-50%, 0)">
+        <form th:method="POST" th:action="@{/empDep/add}">
+
+            <div class="f">
+                <label for="name">Введите имя: </label>
+                <input type="text" th:field="*{new_employee.name}" id="name" />
+                <div style="color:red" th:if="${#fields.hasErrors('new_employee.name')}" th:errors="*{new_employee.name}">Name Error</div>
+            </div>
+            <br/>
+            <div class="f">
+                <label for="surname">Введите фамилию: </label>
+                <input class="f" type="text" th:field="*{new_employee.surname}" id="surname"/>
+                <div style="color:red" th:if="${#fields.hasErrors('new_employee.surname')}" th:errors="*{new_employee.surname}">Age Error</div>
+            </div>
+            <br/>
+            <div class="f">
+                <label for="fathername">Введите отчество: </label>
+                <input class="f" type="text" th:field="*{new_employee.fathername}" id="fathername"/>
+                <div style="color:red" th:if="${#fields.hasErrors('new_employee.fathername')}" th:errors="*{new_employee.fathername}">Email Error</div>
+            </div>
+            <br/>
+            <div class="f">
+                <label for="birthd">Введите день рождения: </label>
+                <input class="f" type="date" th:field="*{new_employee.birthd}" id="birthd"/>
+                <div style="color:red" th:if="${#fields.hasErrors('new_employee.birthd')}" th:errors="*{new_employee.birthd}">Email Error</div>
+            </div>
+            <br/>
+            <div class="f">
+                <label for="addres">Введите адрес: </label>
+                <input class="f" type="text" th:field="*{new_employee.addres}" id="addres"/>
+                <div style="color:red" th:if="${#fields.hasErrors('new_employee.addres')}" th:errors="*{new_employee.addres}">Email Error</div>
+            </div><br/>
+            <div class="f">
+                <label for="catheg">Введите категорию: </label>
+                <input class="f" type="text" th:field="*{new_employee.catheg}" id="catheg"/>
+                <div style="color:red" th:if="${#fields.hasErrors('new_employee.catheg')}" th:errors="*{new_employee.catheg}">Email Error</div>
+            </div>
+            <br/>
+            <div class="f">
+                <label for="inn">Введите ИНН: </label>
+                <input class="f" type="text" th:field="*{new_employee.inn}" id="inn"/>
+                <div style="color:red" th:if="${#fields.hasErrors('new_employee.inn')}" th:errors="*{new_employee.inn}">Email Error</div>
+            </div>
+            <br/>
+            <div class="f">
+                <label for="wage">Введите размер заработной платы: </label>
+                <input type="text" th:field="*{new_employee.wage}" id="wage"/>
+                <div style="color:red" th:if="${#fields.hasErrors('new_employee.wage')}" th:errors="*{new_employee.wage}">Email Error</div>
+            </div>
+            <br/>
+            <div class="f">
+                <label for="post">Введите должность:</label>
+                <input type="text" th:field="*{new_employee.post}" id="post"/>
+                <div style="color:red" th:if="${#fields.hasErrors('new_employee.post')}" th:errors="*{new_employee.post}">Email Error</div>
+            </div>
+            <br/>
+            <div class="f">
+                <label for="holidayBegin">Введите дату начала отпуска: </label>
+                <input type="date" th:field="*{new_employee.holidayBegin}" id="holidayBegin"/>
+                <div style="color:red" th:if="${#fields.hasErrors('new_employee.holidayBegin')}" th:errors="*{new_employee.holidayBegin}">Email Error</div>
+            </div>
+            <br/>
+            <div class="f">
+                <label for="holidayEnd">Введите дату конца отпуска: </label>
+                <input type="date" th:field="*{new_employee.holidayEnd}" id="holidayEnd"/>
+                <div style="color:red" th:if="${#fields.hasErrors('new_employee.holidayEnd')}" th:errors="*{new_employee.holidayEnd}">Email Error</div>
+            </div>
+            <div class="f">
+                <label for="workDayStart">Введите время начала рабочего дня: </label>
+                <input type="time" th:field="*{new_employee.workdayStart}" id="workDayStart"/>
+                <div style="color:red" th:if="${#fields.hasErrors('new_employee.workdayStart')}" th:errors="*{new_employee.workdayStart}">Email Error</div>
+            </div>
+            <br/>
+            <div class="f">
+                <label for="workDayFinish">Введите время конца рабочего дня: </label>
+                <input type="time" th:field="*{new_employee.workdayFinish}" id="workDayFinish"/>
+                <div style="color:red" th:if="${#fields.hasErrors('new_employee.workdayFinish')}" th:errors="*{new_employee.workdayFinish}">Email Error</div>
+            </div>
+            <br/>
+            <div class="f">
+                <label for="cathedra">Введите название кафедры: </label>
+                <input type="text" th:field="*{new_employee.cathedra}" id="cathedra"/>
+                <div style="color:red" th:if="${#fields.hasErrors('new_employee.cathedra')}" th:errors="*{new_employee.cathedra}">Email Error</div>
+            </div>
+            <br/>
+
+            <div class="f">
+                <label for="academ_subs">Выберите преподаваемые дисциплины</label>
+                <br/>
+                <select id="academ_subs" style="width: 300px;" th:field="${academ_subs_dto.academ_subs_dto}" name="academ_subs_dto" multiple="multiple">
+                    <option th:each="academSub : ${academ_subs}"
+                            th:value="${academSub.id}"
+                            th:text="${academSub.name}"
+                            data-badge="">
+                        Part name
+                    </option>
+                </select>
+            </div>
+
+            <div class="f">
+                <label for="honors">Выберите награды</label>
+                <br/>
+                <select id="honors" style="width: 300px;" th:field="${honors_dto.honors_dto}" name="honors_dto" multiple="multiple">
+                    <option th:each="honor : ${honors}"
+                            th:value="${honor.id}"
+                            th:text="${honor.name}"
+                            data-badge="">
+                        Part name
+                    </option>
+                </select>
+            </div>
+
+            <br/>
+            <input type="submit" value="Принять на работу!"/>
+        </form>
+    </div>
+
+</body>
+</html>

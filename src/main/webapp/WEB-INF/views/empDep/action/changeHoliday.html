@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение даты отпуска</title>
+</head>
+<body>
+<div style="position: absolute; left: 50%; transform:translate(-50%, 0)">
+    <div style="position: absolute; left: 50%; transform:translate(-50%, 0)">
+        <form th:method="POST" th:action="@{/empDep/changeHoliday/{id}(id=${idEmp})}">
+            <div class="field">
+                <label for="newBeginDate">Введите новую дату начала отпуска: </label>
+                <input type="date" th:field="${change_holiday.newBeginHoliday}" id="newBeginDate" />
+                <div style="color:red" th:if="${#fields.hasErrors('change_holiday.newBeginHoliday')}" th:errors="*{change_holiday.newBeginDate}">Name Error</div>
+            </div>
+
+            <div class="field">
+                <label for="newEndDate">Введите новую дату конца отпуска: </label>
+                <input type="date" th:field="${change_holiday.newEndHoliday}" id="newEndDate" />
+                <div style="color:red" th:if="${#fields.hasErrors('change_holiday.newEndHoliday')}" th:errors="*{change_holiday.newEndDate}">Name Error</div>
+            </div>
+            <input type="submit" value="Изменить дату">
+        </form>
+    </div>
+</div>
+</body>
+</html>

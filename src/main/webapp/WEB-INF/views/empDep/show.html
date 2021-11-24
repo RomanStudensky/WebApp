@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Сотрудник</title>
+</head>
+<body>
+<div style="position: absolute; left: 50%; transform:translate(-50%, 0)">
+    <div class="field">
+        <p th:text="'Статус - ' + *{employee.status}"></p>
+        <div style="color:red" th:if="${#fields.hasErrors('employee.status')}" th:errors="*{employee.status}">Name Error</div>
+    </div>
+        <div class="field">
+            <label for="name">Введите имя: </label>
+            <input disabled="true" type="text" th:field="*{employee.name}" id="name" />
+            <div style="color:red" th:if="${#fields.hasErrors('employee.name')}" th:errors="*{employee.name}">Name Error</div>
+        </div>
+        <br/>
+        <div class="field">
+            <label for="surname">Введите фамилию: </label>
+            <input disabled="true" class="field" type="text" th:field="*{employee.surname}" id="surname"/>
+            <div style="color:red" th:if="${#fields.hasErrors('employee.surname')}" th:errors="*{employee.surname}">Age Error</div>
+        </div>
+        <br/>
+        <div class="field">
+            <label for="fathername">Введите отчество: </label>
+            <input disabled="true" class="field" type="text" th:field="*{employee.fathername}" id="fathername"/>
+            <div style="color:red" th:if="${#fields.hasErrors('employee.fathername')}" th:errors="*{employee.fathername}">Email Error</div>
+        </div>
+        <br/>
+        <div class="field">
+            <label for="birthd">Введите день рождения: </label>
+            <input disabled="true" class="field" type="date" th:field="*{employee.birthd}" id="birthd"/>
+            <div style="color:red" th:if="${#fields.hasErrors('employee.birthd')}" th:errors="*{employee.birthd}">Email Error</div>
+        </div>
+        <br/>
+        <div class="field">
+            <label for="addres">Введите адрес: </label>
+            <input disabled="true" class="field" type="text" th:field="*{employee.addres}" id="addres"/>
+            <div style="color:red" th:if="${#fields.hasErrors('employee.addres')}" th:errors="*{employee.addres}">Email Error</div>
+        </div>
+    <br/>
+        <div class="field">
+            <label for="catheg">Введите категорию: </label>
+            <input disabled="true" class="field" type="text" th:field="*{employee.catheg}" id="catheg"/>
+            <div style="color:red" th:if="${#fields.hasErrors('employee.catheg')}" th:errors="*{employee.catheg}">Email Error</div>
+        </div>
+        <br/>
+        <div class="field">
+            <label for="inn">Введите ИНН: </label>
+            <input disabled="true" class="field" type="text" th:field="*{employee.inn}" id="inn"/>
+            <div style="color:red" th:if="${#fields.hasErrors('employee.inn')}" th:errors="*{employee.inn}">Email Error</div>
+        </div>
+        <br/>
+        <div class="field">
+            <label for="wage">Введите размер заработной платы: </label>
+            <input disabled="true" type="text" th:field="*{employee.wage}" id="wage"/>
+            <div style="color:red" th:if="${#fields.hasErrors('employee.wage')}" th:errors="*{employee.wage}">Email Error</div>
+        </div>
+        <br/>
+        <div class="field">
+            <label for="post">Введите должность:</label>
+            <input disabled="true" type="text" th:field="*{employee.post}" id="post"/>
+            <div style="color:red" th:if="${#fields.hasErrors('employee.post')}" th:errors="*{employee.post}">Email Error</div>
+        </div>
+        <br/>
+        <div class="field">
+            <label for="holidayBegin">Введите дату начала отпуска: </label>
+            <input disabled="true" type="date" th:field="*{employee.holidayBegin}" id="holidayBegin"/>
+            <div style="color:red" th:if="${#fields.hasErrors('employee.holidayBegin')}" th:errors="*{employee.holidayBegin}">Email Error</div>
+        </div>
+        <br/>
+        <div class="field">
+            <label for="holidayEnd">Введите дату конца отпуска: </label>
+            <input disabled="true" type="date" th:field="*{employee.holidayEnd}" id="holidayEnd"/>
+            <div style="color:red" th:if="${#fields.hasErrors('employee.holidayEnd')}" th:errors="*{employee.holidayEnd}">Email Error</div>
+        </div>
+    <br/>
+        <div class="field">
+            <label for="workDayStart">Введите время начала рабочего дня: </label>
+            <input disabled="true" type="time" th:field="*{employee.workdayStart}" id="workDayStart"/>
+            <div style="color:red" th:if="${#fields.hasErrors('employee.workdayStart')}" th:errors="*{employee.workdayStart}">Email Error</div>
+        </div>
+        <br/>
+        <div class="field">
+            <label for="workDayFinish">Введите время конца рабочего дня: </label>
+            <input disabled="true" type="time" th:field="*{employee.workdayFinish}" id="workDayFinish"/>
+            <div style="color:red" th:if="${#fields.hasErrors('employee.workdayFinish')}" th:errors="*{employee.workdayFinish}">Email Error</div>
+        </div>
+        <br/>
+        <div class="field">
+            <label for="cathedra">Введите название кафедры: </label>
+            <input disabled="true" type="text" th:field="*{employee.cathedra}" id="cathedra"/>
+            <div style="color:red" th:if="${#fields.hasErrors('employee.cathedra')}" th:errors="*{employee.cathedra}">Email Error</div>
+        </div>
+        <br/>
+
+        <div class="field">
+            <label>Преподаваемые дисциплины:</label>
+            <br/>
+            <tr th:each="academSub : ${employee.academicSubjects}">
+                <th th:text="' - ' + ${academSub.name} + ';'"></th>
+            </tr>
+        </div>
+    <br/>
+        <div class="field">
+            <label>Награды:</label>
+            <br/>
+            <tr th:each="honor : ${employee.honors}">
+                <th th:text="' - ' + ${honor.name} + ';'"></th>
+            </tr>
+        </div>
+    <br/>
+    <div th:if="${employee.status == 'Работает'}">
+        <a th:href="@{/empDep/div/{id}(id=${employee.getId()})}"><button>Уволить</button></a>
+        <a th:href="@{/empDep/changePost/{id}(id=${employee.getId()})}"><button>Изменить должность</button></a>
+        <a th:href="@{/empDep/changeHoliday/{id}(id=${employee.getId()})}"><button>Изменить дату отпуска</button></a>
+    </div>
+    <div th:if="${employee.status == 'Истёк срок контракта'}">
+        <a th:href="@{/empContrPlus/{id}(id=${employee.getId()})}"><button>Продлить договор на 6 месяцев</button></a>
+    </div>
+    <br/>
+</div>
+</body>
+</html>

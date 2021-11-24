@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение должности</title>
+</head>
+<body>
+<div style="position: absolute; left: 50%; transform:translate(-50%, 0)">
+    <div style="position: absolute; left: 50%; transform:translate(-50%, 0)">
+    <form th:method="POST" th:action="@{/empDep/changePost/{id}(id=${idEmp})}">
+        <div class="field">
+            <label for="newPost">Введите новую должность: </label>
+            <input type="text" th:field="${change_post.newPost}" id="newPost" />
+            <div style="color:red" th:if="${#fields.hasErrors('change_post.newPost')}" th:errors="*{change_post.newPost}">Name Error</div>
+        </div>
+        <input type="submit" value="Изменить должность">
+    </form>
+</div>
+</div>
+</body>
+</html>

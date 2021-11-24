@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск информации</title>
+</head>
+<body>
+<div>
+    <p style="text-align: center">Поиск информации</p>
+    <br/>
+    <table style="position: relative; left: 50%; transform:translate(-50%, 0)">
+        <tr>
+            <th>
+                <a th:href="@{/search/searchEmpCathExp}">
+                    <input  style="width: 500px" type="submit" value="Преподаватели определённой кафедры с указанием категории и стажа" >
+                </a>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <a th:href="@{/search/searchMedNagCath}">
+                    <input style="width: 500px" type="submit" value="Средняя нагрузка ассистентов указанной кафедры" >
+                </a>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <a th:href="@{/search/searchCountEmpCath}">
+                    <input style="width: 500px" type="submit" value="Количество преподавателей каждой из кафедр" >
+                </a>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <a th:href="@{/search/searchHon}">
+                    <input style="width: 500px" type="submit" value="Сотрудники награждённые медалью «За оборону Ленинграда»" >
+                </a>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <a th:href="@{/search/searchExpired}">
+                    <input style="width: 500px" type="submit" value="Преподаватели, у которых истёк срок контракта" >
+                </a>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <a th:href="@{/search/searchHolEmp}">
+                    <input style="width: 500px" type="submit" value="Сотрудники, находящиеся в отпуске" >
+                </a>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <a th:href="@{/search/searchEmpAcadSubj}">
+                    <input style="width: 500px" type="submit" value="Преподаватели, которые могут читать указанную дисциплину" >
+                </a>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <a th:href="@{/search/searchOldEmp}">
+                    <input style="width: 500px" type="submit" value="Сотрудники дольше всех работающие в институте" >
+                </a>
+            </th>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

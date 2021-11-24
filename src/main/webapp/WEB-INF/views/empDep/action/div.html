@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Увольнение</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-css/1.4.6/select2-bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+
+</head>
+<body>
+    <div style="position: absolute; left: 50%; transform:translate(-50%, 0)">
+        <form th:method="POST" th:action="@{/empDep/divorce/{id}(id=${idEmp})}">
+            <div class="field">
+<!--                <input disabled="true" style="display: none;" th:field="*{id}" value="">-->
+                <label for="term_ev">Введите причину увольнения: </label>
+                <input type="text" th:field="${div_con.terminateEvent}" id="term_ev" />
+                <div style="color:red" th:if="${#fields.hasErrors('div_con.terminateEvent')}" th:errors="*{div_con.terminateEvent}">Name Error</div>
+            </div>
+            <input type="submit" value="Уволить">
+        </form>
+    </div>
+</body>
+</html>

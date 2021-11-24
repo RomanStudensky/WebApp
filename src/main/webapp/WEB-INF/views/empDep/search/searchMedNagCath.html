@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск</title>
+</head>
+<body>
+<div style="position: absolute; left: 50%; transform:translate(-50%, 0)">
+    <p>Средняя нагрузка ассистентов указанной кафедры</p>
+
+    <br/>
+    <form method="GET" action="/search/searchMedNagCathi">
+        <label for="name">Введите название кафедры: </label>
+        <input type="text" th:field="*{search.search}" id="name" />
+        <input type="submit" value="Поиск">
+    </form>
+    <br/>
+    <label for="name1">Средняя нагрузка: </label>
+    <input disabled="true" type="text" th:value="*{nag}" id="name1" />
+</div>
+</body>
+</html>

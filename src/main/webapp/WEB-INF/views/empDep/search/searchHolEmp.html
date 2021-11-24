@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск</title>
+</head>
+<body>
+<div style="position: absolute; left: 50%; transform:translate(-50%, 0)">
+    <p>Сотрудники, находящиеся в отпуске</p>
+    <table border-color="white"   border="1" cellspacing="0" cellpadding="7" width="300" style="background: #CFCFCF;">
+        <tr>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Дата начала отпуска</th>
+            <th>Дата конца отпуска</th>
+        </tr>
+        <tr th:each="employee : ${employees}">
+            <th th:text="${employee.surname}"></th>
+            <th th:text="${employee.name}"></th>
+            <th th:text="${employee.fathername}"></th>
+            <th th:text="${employee.getWorkContract().getHolidayBegin()}"></th>
+            <th th:text="${employee.getWorkContract().getHolidayEnd()}"></th>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск</title>
+</head>
+<body>
+<div style="position: absolute; left: 50%; transform:translate(-50%, 0)">
+    <p>Сотрудник, который работает дольше всех</p>
+</div>
+<br/>
+<br/>
+<table border-color="white"   border="1" cellspacing="0" cellpadding="7" style="background: #CFCFCF;position: relative; left: 50%; transform:translate(-50%, 0)">
+    <tr>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Отчество</th>
+        <th>День рождения</th>
+        <th>Дата заключения контракта</th>
+    </tr>
+    <tr th:each="employee : ${employees}">
+        <th th:text="${employee.getName()}"></th>
+        <th th:text="${employee.getSurname()}"></th>
+        <th th:text="${employee.getFathername()}"></th>
+        <th th:text="${employee.getBirthd()}"></th>
+        <th th:text="${employee.getWorkContract().getDateBegin()}"></th>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск</title>
+</head>
+<body>
+<div style="position: absolute; left: 50%; transform:translate(-50%, 0)">
+    <p>Преподаватели, которые могут преподавать указанную дисциплину</p>
+
+    <br/>
+    <form method="GET" action="/search/searchEmpAcadSubji">
+        <label for="name">Введите название дисциплины: </label>
+        <input type="text" th:field="*{search.search}" id="name" />
+        <input type="submit" value="Поиск">
+    </form>
+    <br/>
+    <table border-color="white"   border="1" cellspacing="0" cellpadding="7" width="300" style="background: #CFCFCF;">
+        <tr>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Категория</th>
+        </tr>
+        <tr th:each="employee : ${employees}">
+            <th th:text="${employee.surname}"></th>
+            <th th:text="${employee.name}"></th>
+            <th th:text="${employee.fathername}"></th>
+            <th th:text="${employee.catheg}"></th>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
